@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb2o0icqv4j2n"]
+
+[ext_resource type="Script" path="res://data/scenes/Main.cs" id="1_gu7s3"]
+[ext_resource type="PackedScene" uid="uid://b4s3nm5n111qi" path="res://data/player/Player.tscn" id="2_g2pb2"]
+[ext_resource type="PackedScene" uid="uid://d2sb8keoe37ml" path="res://data/scenes/World.tscn" id="3_0h0kw"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_gu7s3")
+
+[node name="World" parent="." instance=ExtResource("3_0h0kw")]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-95, 8, -43, 8, -58, 34)
+
+[node name="Player" parent="." instance=ExtResource("2_g2pb2")]
