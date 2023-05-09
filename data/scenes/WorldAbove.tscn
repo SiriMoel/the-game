@@ -519,5 +519,5 @@ script = ExtResource("3_ex4ay")
 position = Vector2(9, 0)
 shape = SubResource("RectangleShape2D_up8is")
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="OnBodyEntered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="OnBodyExited"]

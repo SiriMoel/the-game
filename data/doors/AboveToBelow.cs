@@ -14,25 +14,25 @@ public partial class AboveToBelow : Area2D
 	public override void _Process(double delta)
 	{
 		if (Input.IsActionJustPressed("interact")) {
-			Console.WriteLine("interacted");
+			GD.Print("interacted");
 			// telebort
 		}
 	}
 
-	private void _on_body_entered(PhysicsBody2D body)
+	private void OnBodyEntered(Node2D body)
 	{
 		if (body.Name == "Player") {
 			Entered = true;
-			Console.WriteLine("entered");
+			GD.Print("entered");
 		}
 	}
 
 
-	private void _on_body_exited(PhysicsBody2D body)
+	private void OnBodyExited(Node2D body)
 	{
 		if (body.Name == "Player") {
 			Entered = false;
-			Console.WriteLine("exited");
+			GD.Print("exited");
 		}
 	}
 

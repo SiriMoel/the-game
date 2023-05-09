@@ -31,6 +31,7 @@ public static partial class Items
 		public readonly string Desc;
 		public readonly string InstancePath;
 
+		[JsonConstructor]
 		public ItemData(string id, string icon, ItemType type, string name, string desc) {
 			Id = id;
 			Icon = icon;
