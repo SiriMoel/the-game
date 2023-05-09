@@ -1,0 +1,10 @@
+[
+    {
+        "id" : "TestItem",
+        "icon" : "res://data/player/test_player.png",
+        "type" : "RESOURCE",
+        "name" : "Test Item",
+        "desc" : "This is a test item.",
+        "InstancePath": ""
+    }
+]
