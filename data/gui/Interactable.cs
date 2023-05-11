@@ -5,12 +5,17 @@ public partial class Interactable : Area2D
 {
 	private bool inArea = false;
 	private bool animationDown = false;
+	public bool Enabled = true;
+	[Signal] public delegate void InteractedEventHandler();
 	public override void _Ready()
 	{
 		foreach (var item in GetChildren())
 		{
-			if (item.Name != "Sprite2D" && item.Name != "BaseShape2D") {
-				GetNode<CollisionShape2D>("BaseShape2D").Shape = ((CollisionShape2D)item).Shape;
+			if (item.Name == "BaseShape2D") {
+				item.QueueFree();
+			}
+			if (item.Name != "Sprite2D" && item.Name != "BaseShape2D" && item.Name != "Area2D") {
+				GetNode<CollisionShape2D>("Area2D/BaseShape2D").Shape = ((CollisionShape2D)item).Shape;
 				item.QueueFree();
 			}
 		}
@@ -19,19 +24,23 @@ public partial class Interactable : Area2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-
+		if (!Enabled) {
+			return;
+		}
+		if (Input.IsActionPressed("interact")) {
+			EmitSignal(SignalName.Interacted);
+		}
 		Sprite2D sprite = GetNode<Sprite2D>("Sprite2D");
 		if (inArea) {
 			if (animationDown) {
-				sprite.Position = sprite.Position with {Y = (float)Mathf.Lerp(sprite.Position.Y, -2, 0.02)};
+				sprite.Position = sprite.Position with {Y = sprite.Position.Y - 0.05f};
 			} else {
-				sprite.Position = sprite.Position with {Y = (float)Mathf.Lerp(sprite.Position.Y, 2, 0.02)};
+				sprite.Position = sprite.Position with {Y = sprite.Position.Y + 0.05f};
 			}
-			if (sprite.Position.Y < -1.9) {
-				animationDown = false;
-			}
-			if (sprite.Position.Y > 1.9) {
+			if (sprite.Position.Y >= 2) {
 				animationDown = true;
+			} else if (sprite.Position.Y <= -2) {
+				animationDown = false;
 			}
 		} else {
 			sprite.Position = sprite.Position with {Y = 0};
@@ -57,5 +66,4 @@ public partial class Interactable : Area2D
 	}
 
 }
-
 

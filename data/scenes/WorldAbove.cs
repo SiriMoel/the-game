@@ -13,4 +13,9 @@ public partial class WorldAbove : Node2D
 	{
 		
 	}
+
+	private void OnWorldTeleporterInteracted()
+	{
+		OS.Alert("interacted");
+	}
 }
