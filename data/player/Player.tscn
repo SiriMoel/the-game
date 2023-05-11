@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b4s3nm5n111qi"]
+[gd_scene load_steps=31 format=3 uid="uid://b4s3nm5n111qi"]
 
 [ext_resource type="Texture2D" uid="uid://cqyp8p4a5k2hu" path="res://data/player/test_player.png" id="1_cjiar"]
 [ext_resource type="Script" path="res://data/player/Player.cs" id="1_sci8c"]
@@ -55,9 +55,21 @@ region = Rect2(48, 32, 16, 16)
 atlas = ExtResource("3_wol5g")
 region = Rect2(0, 96, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3o3v5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpgmj"]
 atlas = ExtResource("3_wol5g")
 region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeelp"]
+atlas = ExtResource("3_wol5g")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcfed"]
+atlas = ExtResource("3_wol5g")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbk3a"]
+atlas = ExtResource("3_wol5g")
+region = Rect2(48, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ki48v"]
 atlas = ExtResource("3_wol5g")
@@ -137,7 +149,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3o3v5")
+"texture": SubResource("AtlasTexture_gpgmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeelp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcfed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbk3a")
 }],
 "loop": true,
 "name": &"right_idle",
@@ -250,7 +271,7 @@ shape = SubResource("RectangleShape2D_4dev8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_821b7")
-animation = &"left_idle"
+animation = &"down_move"
 speed_scale = 2.0
 
 [node name="Inventory" type="Node2D" parent="."]

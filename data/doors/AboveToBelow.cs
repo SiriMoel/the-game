@@ -8,6 +8,7 @@ public partial class AboveToBelow : Area2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		Visible = false;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,6 +25,7 @@ public partial class AboveToBelow : Area2D
 		if (body.Name == "Player") {
 			Entered = true;
 			GD.Print("entered");
+			Visible = true;
 		}
 	}
 
@@ -33,6 +35,7 @@ public partial class AboveToBelow : Area2D
 		if (body.Name == "Player") {
 			Entered = false;
 			GD.Print("exited");
+			Visible = false;
 		}
 	}
 
