@@ -16,6 +16,9 @@ public partial class WorldAbove : Node2D
 
 	private void OnWorldTeleporterInteracted()
 	{
-		OS.Alert("interacted");
+		//OS.Alert("interacted");
+		Player player = GetNode<Player>("/root/Main/Player");
+		WorldBelow worldbelow = GetNode<WorldBelow>("/root/Main/WorldBelow");
+		player.Position = worldbelow.Position;
 	}
 }

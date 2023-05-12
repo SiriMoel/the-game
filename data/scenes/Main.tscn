@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4sseuf4agrm7"]
+[gd_scene load_steps=5 format=3 uid="uid://b4sseuf4agrm7"]
 
 [ext_resource type="Script" path="res://data/scenes/Main.cs" id="1_gu7s3"]
 [ext_resource type="PackedScene" uid="uid://b4s3nm5n111qi" path="res://data/player/Player.tscn" id="2_g2pb2"]
 [ext_resource type="PackedScene" uid="uid://bumsr6y8jumiu" path="res://data/scenes/WorldAbove.tscn" id="3_0h0kw"]
 [ext_resource type="PackedScene" uid="uid://cjabydauvypp" path="res://data/scenes/WorldBelow.tscn" id="3_wuw4s"]
-[ext_resource type="Script" path="res://data/scenes/WorldBelow.cs" id="6_x6gcu"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_gu7s3")
@@ -13,7 +12,6 @@ script = ExtResource("1_gu7s3")
 
 [node name="WorldBelow" parent="." instance=ExtResource("3_wuw4s")]
 position = Vector2(-871, 0)
-script = ExtResource("6_x6gcu")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false

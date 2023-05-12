@@ -27,7 +27,7 @@ public partial class Interactable : Area2D
 		if (!Enabled) {
 			return;
 		}
-		if (Input.IsActionPressed("interact")) {
+		if (Input.IsActionPressed("interact") && inArea) {
 			EmitSignal(SignalName.Interacted);
 		}
 		Sprite2D sprite = GetNode<Sprite2D>("Sprite2D");
@@ -50,7 +50,7 @@ public partial class Interactable : Area2D
 	private void OnBodyEntered(Node2D body)
 	{
 		if (body.Name == "Player") {
-			GD.Print("entered");
+			//GD.Print("entered");
 			inArea = true;
 			GetNode<Sprite2D>("Sprite2D").Visible = true;
 		}
@@ -59,7 +59,7 @@ public partial class Interactable : Area2D
 	private void OnBodyExited(Node2D body)
 	{
 		if (body.Name == "Player") {
-			GD.Print("exited");
+			//GD.Print("exited");
 			inArea = false;
 			GetNode<Sprite2D>("Sprite2D").Visible = false;
 		}

@@ -12,4 +12,12 @@ public partial class WorldBelow : Node2D
 	public override void _Process(double delta)
 	{
 	}
+
+	private void OnWorldTeleporterInteracted()
+	{
+		Player player = GetNode<Player>("/root/Main/Player");
+		Interactable worldabove = GetNode<Interactable>("/root/Main/WorldAbove/WorldTeleporter");
+		player.Position = new Vector2(worldabove.Position.X + 20, worldabove.Position.Y );
+	}
+
 }
