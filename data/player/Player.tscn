@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://13qldxudafcb" path="res://data/player/VineThing/1.png" id="4_s0hku"]
 [ext_resource type="Texture2D" uid="uid://vrb8icuxkh1e" path="res://data/player/VineThing/3.png" id="5_b16x8"]
 [ext_resource type="Texture2D" uid="uid://prhwrayanc21" path="res://data/player/VineThing/2.png" id="5_vb50t"]
-[ext_resource type="Script" path="res://data/player/Inventory.cs" id="7_sv5o1"]
+[ext_resource type="PackedScene" uid="uid://u6g5i4b18qwp" path="res://data/scenes/GUI.tscn" id="7_k5tq7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_adp5w"]
 radius = 3.0
@@ -274,5 +274,6 @@ sprite_frames = SubResource("SpriteFrames_821b7")
 animation = &"down_move"
 speed_scale = 2.0
 
-[node name="Inventory" type="Node2D" parent="."]
-script = ExtResource("7_sv5o1")
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="GUI" instance=ExtResource("7_k5tq7")]

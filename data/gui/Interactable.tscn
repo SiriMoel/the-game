@@ -10,6 +10,7 @@ size = Vector2(0, 0)
 script = ExtResource("1_voacb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_5lrew")
 

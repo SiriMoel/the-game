@@ -273,11 +273,11 @@ texture = ExtResource("2_355wv")
 7:6/0 = 0
 7:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:6/0/physics_layer_0/angular_velocity = 0.0
-7:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0, 8, 8, -8, 8)
+7:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:6/0 = 0
 6:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:6/0/physics_layer_0/angular_velocity = 0.0
-6:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0, 8, 8, -8, 8)
+6:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:5/0 = 0
 6:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:5/0/physics_layer_0/angular_velocity = 0.0
@@ -534,7 +534,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(-917508, 131073, 0, 65550, 65537, 0, -655356, 1, 0, 327686, 65537, 0, 393243, 65537, 0, -262138, 131073, 0, 393251, 131073, 0, 196652, 1, 0, 458770, 1, 0, 262155, 131073, 0, 131074, 131073, 1, -393219, 131073, 1, 458797, 131073, 1, -1114106, 131073, 1)
+layer_1/tile_data = PackedInt32Array(-917508, 131073, 0, 65550, 65537, 0, -655356, 1, 0, 327686, 65537, 0, 393243, 65537, 0, -262138, 131073, 0, 393251, 131073, 0, 196652, 1, 0, 458770, 1, 0, 262155, 131073, 0, 131074, 131073, 1, -393219, 131073, 1, 458797, 131073, 1, -1114106, 131073, 1, 524284, 1, 0)
 
 [node name="WorldTeleporter" parent="." instance=ExtResource("3_4uxng")]
 position = Vector2(-90, -25)
