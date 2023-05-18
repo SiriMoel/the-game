@@ -42,44 +42,49 @@ public partial class Inventory : Control
 
 	public bool InventoryShown = false;
 	public int ActiveSlot = 1;
-
+	public Texture2D SelectedSlotTexture;
+	public Texture2D SlotTexture;
 	public override void _Ready()
 	{
 		Visible = false;
-		
+		SelectedSlotTexture = GetNode<TextureRect>($"Slots/Slot1").Texture;
+		SlotTexture = GetNode<TextureRect>($"Slots/Slot2").Texture;
 	}
 
 	public override void _Process(double delta)
 	{
-		TextureRect SelectedSlot = GetNode<TextureRect>("SelectedSlot");
 
 		if (Input.IsActionJustPressed("inventory")) {	
 			InventoryShown = !InventoryShown;
 			Visible = !Visible;
 			GetTree().Paused = !GetTree().Paused;
 		}
-
 		if (InventoryShown == true) {
+			int NewSlot = ActiveSlot;
 			if (Input.IsActionJustPressed("up")) {
-				ActiveSlot -= 5;
+				NewSlot -= 5;
 			}
 			if (Input.IsActionJustPressed("down")) {
-				ActiveSlot += 5;
+				NewSlot += 5;
 			}
 			if (Input.IsActionJustPressed("left")) {
-				ActiveSlot -= 1;
+				NewSlot -= 1;
 			}
 			if (Input.IsActionJustPressed("right")) {
-				ActiveSlot += 1;
+				NewSlot += 1;
 			}
-			if (ActiveSlot < 1) {
-				ActiveSlot = 1;
+			if (NewSlot < 1) {
+				NewSlot = ActiveSlot;
 			}
-			if (ActiveSlot > 20) {
-				ActiveSlot = 20;
+			if (NewSlot > 20) {
+				NewSlot = ActiveSlot;
 			}
 
-			SelectedSlot.Position = GetNode<TextureRect>("Slot{ActiveSlot}").Position;
+			if (NewSlot != ActiveSlot) {
+				GetNode<TextureRect>($"Slots/Slot{NewSlot}").Texture = SelectedSlotTexture;
+				GetNode<TextureRect>($"Slots/Slot{ActiveSlot}").Texture = SlotTexture;
+				ActiveSlot = NewSlot;
+			}
 		}
 	
 	}
