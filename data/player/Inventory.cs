@@ -53,7 +53,6 @@ public partial class Inventory : Control
 
 	public override void _Process(double delta)
 	{
-
 		if (Input.IsActionJustPressed("inventory")) {	
 			InventoryShown = !InventoryShown;
 			Visible = !Visible;

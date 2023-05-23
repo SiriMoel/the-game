@@ -6,11 +6,12 @@ using System.Text.Json.Serialization;
 public static partial class Items
 {
 	public enum ItemType { RESOURCE, WEAPON, TOOL, EQUIPABLE, CONSUMABLE, PATTERN };
-	public static System.Collections.Generic.List<ItemData> LoadedItems;
+	public static System.Collections.Generic.List<ItemData> LoadedItems = new();
+	private static JsonSerializerOptions jsonConfig = new JsonSerializerOptions() {IncludeFields = true, Converters = {new JsonStringEnumConverter()}};
 	public static void LoadItems(string path)
 	{
 		string jsonString = (FileAccess.Open(path, FileAccess.ModeFlags.Read).GetAsText());
-		LoadedItems = JsonSerializer.Deserialize<System.Collections.Generic.List<ItemData>>(jsonString, new JsonSerializerOptions {IncludeFields = true});
+		LoadedItems.AddRange(JsonSerializer.Deserialize<System.Collections.Generic.List<ItemData>>(jsonString, jsonConfig));
 	}
 
 	public static ItemData GetItem(string itemID) {

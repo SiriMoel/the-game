@@ -12,7 +12,6 @@ public partial class Player : CharacterBody2D
 	public override void _PhysicsProcess(double delta)
 	{
 		AnimatedSprite2D Animation = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-		
 		if (Input.IsActionPressed("left")) {
 			Velocity.X = -Speed;
 			facing = FaceDirection.LEFT;
