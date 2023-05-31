@@ -1,19 +1,12 @@
-[gd_scene load_steps=31 format=3 uid="uid://b4s3nm5n111qi"]
+[gd_scene load_steps=26 format=3 uid="uid://b4s3nm5n111qi"]
 
-[ext_resource type="Texture2D" uid="uid://cqyp8p4a5k2hu" path="res://data/player/test_player.png" id="1_cjiar"]
 [ext_resource type="Script" path="res://data/player/Player.cs" id="1_sci8c"]
+[ext_resource type="Script" path="res://data/player/Inventory.cs" id="3_p8b7h"]
 [ext_resource type="Texture2D" uid="uid://jguumeobsvpm" path="res://data/player/player.png" id="3_wol5g"]
-[ext_resource type="Texture2D" uid="uid://13qldxudafcb" path="res://data/player/VineThing/1.png" id="4_s0hku"]
-[ext_resource type="Texture2D" uid="uid://vrb8icuxkh1e" path="res://data/player/VineThing/3.png" id="5_b16x8"]
-[ext_resource type="Texture2D" uid="uid://prhwrayanc21" path="res://data/player/VineThing/2.png" id="5_vb50t"]
-[ext_resource type="PackedScene" uid="uid://u6g5i4b18qwp" path="res://data/scenes/GUI.tscn" id="7_k5tq7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_adp5w"]
 radius = 3.0
 height = 6.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dev8"]
-size = Vector2(1, 5.75)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p2mxq"]
 atlas = ExtResource("3_wol5g")
@@ -202,71 +195,10 @@ animations = [{
 script = ExtResource("1_sci8c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CapsuleShape2D_adp5w")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_cjiar")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(9, 9)
-
-[node name="VineThing" type="Node2D" parent="."]
-visible = false
-
-[node name="PinJoint2D" type="PinJoint2D" parent="VineThing"]
-visible = false
-position = Vector2(0, -10)
-node_a = NodePath("../..")
-node_b = NodePath("../1")
-
-[node name="1" type="RigidBody2D" parent="VineThing"]
-collision_layer = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="VineThing/1"]
-position = Vector2(0, -7)
-texture = ExtResource("4_s0hku")
-
-[node name="PinJoint2D" type="PinJoint2D" parent="VineThing/1"]
-visible = false
-position = Vector2(0, -4)
-node_a = NodePath("..")
-node_b = NodePath("../../2")
-bias = 0.01
-softness = 4.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VineThing/1"]
-position = Vector2(0, -5.875)
-shape = SubResource("RectangleShape2D_4dev8")
-
-[node name="2" type="RigidBody2D" parent="VineThing"]
-collision_layer = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="VineThing/2"]
-position = Vector2(0, -1)
-texture = ExtResource("5_vb50t")
-
-[node name="PinJoint2D" type="PinJoint2D" parent="VineThing/2"]
-visible = false
-position = Vector2(0, 2)
-node_a = NodePath("..")
-node_b = NodePath("../../3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VineThing/2"]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_4dev8")
-
-[node name="3" type="RigidBody2D" parent="VineThing"]
-
-[node name="Sprite2D" type="Sprite2D" parent="VineThing/3"]
-position = Vector2(0, 5)
-texture = ExtResource("5_b16x8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VineThing/3"]
-position = Vector2(0, 5)
-shape = SubResource("RectangleShape2D_4dev8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -4)
@@ -274,6 +206,5 @@ sprite_frames = SubResource("SpriteFrames_821b7")
 animation = &"down_move"
 speed_scale = 2.0
 
-[node name="GUI" type="CanvasLayer" parent="."]
-
-[node name="GUI" parent="GUI" instance=ExtResource("7_k5tq7")]
+[node name="Inventory" type="Node2D" parent="."]
+script = ExtResource("3_p8b7h")

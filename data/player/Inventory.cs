@@ -1,8 +1,11 @@
 using Godot;
 using System;
 
-public partial class Inventory : Control
+public partial class Inventory : Node2D
 {
+	public Items.Item[] EquippedItems = new Items.Item[2];
+	public Items.Item EquippedPattern;
+	public Items.Item[] EquippedConsumables = new Items.Item[3];
 	public Items.Item[] InvItems = new Items.Item[20];
 	public void AddItem(string itemId, int? slot) {
 		int insertInto = 0;
@@ -21,6 +24,7 @@ public partial class Inventory : Control
 			throw new IndexOutOfRangeException($"Slot {insertInto} already has an item in it.");
 		}
 		InvItems[insertInto] = newItem;
+
 	}
 
 	public void RemoveItem(int slot) {
@@ -35,71 +39,17 @@ public partial class Inventory : Control
 		InvItems[slot2] = i1;
 	}
 
-	public void EquipItem(int slot) {
+	public void EquipItem(int slot, int equipSlot) {
 		Items.Item i = InvItems[slot];
-		GetParent().AddChild(i);
+		EquippedItems[equipSlot] = i;
+		InvItems[slot] = null;
+		AddChild(EquippedItems[equipSlot]);
 	}
 
-	public bool InventoryShown = false;
-	public int ActiveSlot = 1;
-	public Texture2D SelectedSlotTexture;
-	public Texture2D SlotTexture;
-	public override void _Ready()
-	{
-		Visible = false;
-		SelectedSlotTexture = GetNode<TextureRect>($"Slots/Slot1").Texture;
-		SlotTexture = GetNode<TextureRect>($"Slots/Slot2").Texture;
+	public void UnequipItem(int equipSlot, int slot) {
+		Items.Item i = EquippedItems[equipSlot];
+		InvItems[slot] = i;
+		EquippedItems[equipSlot] = null;
+		RemoveChild(InvItems[slot]);
 	}
-
-	public override void _Process(double delta)
-	{
-		if (Input.IsActionJustPressed("inventory")) {	
-			InventoryShown = !InventoryShown;
-			Visible = !Visible;
-			GetTree().Paused = !GetTree().Paused;
-		}
-		if (InventoryShown == true) {
-			int NewSlot = ActiveSlot;
-			if (Input.IsActionJustPressed("up")) {
-				NewSlot -= 5;
-			}
-			if (Input.IsActionJustPressed("down")) {
-				NewSlot += 5;
-			}
-			if (Input.IsActionJustPressed("left")) {
-				NewSlot -= 1;
-			}
-			if (Input.IsActionJustPressed("right")) {
-				NewSlot += 1;
-			}
-			if (NewSlot < 1) {
-				NewSlot = ActiveSlot;
-			}
-			if (NewSlot > 20) {
-				NewSlot = ActiveSlot;
-			}
-
-			if (NewSlot != ActiveSlot) {
-				GetNode<TextureRect>($"Slots/Slot{NewSlot}").Texture = SelectedSlotTexture;
-				GetNode<TextureRect>($"Slots/Slot{ActiveSlot}").Texture = SlotTexture;
-				ActiveSlot = NewSlot;
-			}
-		}
-	
-	}
-
 }
-
-/*
-
-X X X X X
-X X X X X
-X X X X X
-X X X X X
-
-01 02 03 04 05
-06 07 08 09 10
-11 12 13 14 15
-16 17 18 19 20
-
-*/

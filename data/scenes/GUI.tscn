@@ -1,12 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://u6g5i4b18qwp"]
 
-[ext_resource type="Script" path="res://data/player/Inventory.cs" id="1_g6pq5"]
+[ext_resource type="Script" path="res://data/gui/InventoryGui.cs" id="1_gakb6"]
 [ext_resource type="Texture2D" uid="uid://j3fhf8snn7g1" path="res://data/gui/InventoryBackground.png" id="2_vs4pa"]
 [ext_resource type="PackedScene" uid="uid://3i8onqalaovi" path="res://data/gui/InventorySlot.tscn" id="3_x7bjy"]
 [ext_resource type="Texture2D" uid="uid://dyhdbjxx5hfqj" path="res://data/gui/InventorySelectedSlot.png" id="4_0pp82"]
 
-[node name="GUI" type="Control"]
+[node name="GUI" type="CanvasLayer"]
 process_mode = 3
+
+[node name="Root" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,21 +16,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Inventory" type="Control" parent="."]
+[node name="Inventory" type="Control" parent="Root"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = 65.0
-offset_bottom = 65.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(9, 9)
-script = ExtResource("1_g6pq5")
+scale = Vector2(6, 6)
+script = ExtResource("1_gakb6")
 
-[node name="Background" type="TextureRect" parent="Inventory"]
+[node name="Background" type="TextureRect" parent="Root/Inventory"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -43,7 +43,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_vs4pa")
 
-[node name="Slots" type="GridContainer" parent="Inventory"]
+[node name="Slots" type="GridContainer" parent="Root/Inventory"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -60,63 +60,63 @@ theme_override_constants/h_separation = 6
 theme_override_constants/v_separation = 6
 columns = 5
 
-[node name="Slot1" parent="Inventory/Slots" instance=ExtResource("3_x7bjy")]
+[node name="Slot1" parent="Root/Inventory/Slots" instance=ExtResource("3_x7bjy")]
 layout_mode = 2
 texture = ExtResource("4_0pp82")
 
-[node name="Slot2" parent="Inventory/Slots" instance=ExtResource("3_x7bjy")]
+[node name="Slot2" parent="Root/Inventory/Slots" instance=ExtResource("3_x7bjy")]
 layout_mode = 2
 
-[node name="Slot3" parent="Inventory/Slots" instance=ExtResource("3_x7bjy")]
+[node name="Slot3" parent="Root/Inventory/Slots" instance=ExtResource("3_x7bjy")]
 layout_mode = 2
 
-[node name="Slot4" parent="Inventory/Slots" instance=ExtResource("3_x7bjy")]
+[node name="Slot4" parent="Root/Inventory/Slots" instance=ExtResource("3_x7bjy")]
 layout_mode = 2
 
-[node name="Slot5" parent="Inventory/Slots" instance=ExtResource("3_x7bjy")]
+[node name="Slot5" parent="Root/Inventory/Slots" instance=ExtResource("3_x7bjy")]
 layout_mode = 2
 
-[node name="Slot6" parent="Inventory/Slots" instance=ExtResource("3_x7bjy")]
+[node name="Slot6" parent="Root/Inventory/Slots" instance=ExtResource("3_x7bjy")]
 layout_mode = 2
 
-[node name="Slot7" parent="Inventory/Slots" instance=ExtResource("3_x7bjy")]
+[node name="Slot7" parent="Root/Inventory/Slots" instance=ExtResource("3_x7bjy")]
 layout_mode = 2
 
-[node name="Slot8" parent="Inventory/Slots" instance=ExtResource("3_x7bjy")]
+[node name="Slot8" parent="Root/Inventory/Slots" instance=ExtResource("3_x7bjy")]
 layout_mode = 2
 
-[node name="Slot9" parent="Inventory/Slots" instance=ExtResource("3_x7bjy")]
+[node name="Slot9" parent="Root/Inventory/Slots" instance=ExtResource("3_x7bjy")]
 layout_mode = 2
 
-[node name="Slot10" parent="Inventory/Slots" instance=ExtResource("3_x7bjy")]
+[node name="Slot10" parent="Root/Inventory/Slots" instance=ExtResource("3_x7bjy")]
 layout_mode = 2
 
-[node name="Slot11" parent="Inventory/Slots" instance=ExtResource("3_x7bjy")]
+[node name="Slot11" parent="Root/Inventory/Slots" instance=ExtResource("3_x7bjy")]
 layout_mode = 2
 
-[node name="Slot12" parent="Inventory/Slots" instance=ExtResource("3_x7bjy")]
+[node name="Slot12" parent="Root/Inventory/Slots" instance=ExtResource("3_x7bjy")]
 layout_mode = 2
 
-[node name="Slot13" parent="Inventory/Slots" instance=ExtResource("3_x7bjy")]
+[node name="Slot13" parent="Root/Inventory/Slots" instance=ExtResource("3_x7bjy")]
 layout_mode = 2
 
-[node name="Slot14" parent="Inventory/Slots" instance=ExtResource("3_x7bjy")]
+[node name="Slot14" parent="Root/Inventory/Slots" instance=ExtResource("3_x7bjy")]
 layout_mode = 2
 
-[node name="Slot15" parent="Inventory/Slots" instance=ExtResource("3_x7bjy")]
+[node name="Slot15" parent="Root/Inventory/Slots" instance=ExtResource("3_x7bjy")]
 layout_mode = 2
 
-[node name="Slot16" parent="Inventory/Slots" instance=ExtResource("3_x7bjy")]
+[node name="Slot16" parent="Root/Inventory/Slots" instance=ExtResource("3_x7bjy")]
 layout_mode = 2
 
-[node name="Slot17" parent="Inventory/Slots" instance=ExtResource("3_x7bjy")]
+[node name="Slot17" parent="Root/Inventory/Slots" instance=ExtResource("3_x7bjy")]
 layout_mode = 2
 
-[node name="Slot18" parent="Inventory/Slots" instance=ExtResource("3_x7bjy")]
+[node name="Slot18" parent="Root/Inventory/Slots" instance=ExtResource("3_x7bjy")]
 layout_mode = 2
 
-[node name="Slot19" parent="Inventory/Slots" instance=ExtResource("3_x7bjy")]
+[node name="Slot19" parent="Root/Inventory/Slots" instance=ExtResource("3_x7bjy")]
 layout_mode = 2
 
-[node name="Slot20" parent="Inventory/Slots" instance=ExtResource("3_x7bjy")]
+[node name="Slot20" parent="Root/Inventory/Slots" instance=ExtResource("3_x7bjy")]
 layout_mode = 2
