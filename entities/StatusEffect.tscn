@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://kjkdo3ibfbhq"]
+
+[node name="StatusEffect" type="Node"]
+
+[node name="TickTimer" type="Timer" parent="."]
+
+[node name="FullTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="TickTimer" to="." method="OnStatusTick"]
+[connection signal="timeout" from="FullTimer" to="." method="OnFullTimerTimeout"]

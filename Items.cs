@@ -11,8 +11,9 @@ public static partial class Items
 	public static void LoadItems(string path)
 	{
 		string jsonString = (FileAccess.Open(path, FileAccess.ModeFlags.Read).GetAsText());
-		LoadedItems.AddRange(JsonSerializer.Deserialize<List<ItemData>>(jsonString, jsonConfig));
+		LoadedItems.AddRange(System.Text.Json.JsonSerializer.Deserialize<List<ItemData>>(jsonString, new JsonSerializerOptions() {IncludeFields = true}));
 	}
+
 
 	public static ItemData GetItem(string itemID) {
 		foreach (ItemData item in LoadedItems)

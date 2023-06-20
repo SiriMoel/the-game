@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://m82ry3tvtyhs"]
+
+[ext_resource type="Script" path="res://entities/Entity.cs" id="1_1kns5"]
+[ext_resource type="PackedScene" uid="uid://wblbrr5m7pfh" path="res://entities/DamageModel.tscn" id="1_urpu6"]
+
+[node name="Entity" type="CharacterBody2D" groups=["entity"]]
+script = ExtResource("1_1kns5")
+
+[node name="DamageModel" parent="." instance=ExtResource("1_urpu6")]

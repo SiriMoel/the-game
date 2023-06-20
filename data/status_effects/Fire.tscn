@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvsuoc1newi6n"]
+
+[ext_resource type="PackedScene" uid="uid://kjkdo3ibfbhq" path="res://entities/StatusEffect.tscn" id="1_wqedx"]
+[ext_resource type="Script" path="res://data/status_effects/Fire.cs" id="2_r3iv8"]
+
+[node name="Fire" instance=ExtResource("1_wqedx")]
+script = ExtResource("2_r3iv8")

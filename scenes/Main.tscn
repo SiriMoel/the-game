@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cbk43rugn316k"]
 
 [ext_resource type="Script" path="res://scenes/Main.cs" id="1_gu7s3"]
-[ext_resource type="PackedScene" path="res://player/Player.tscn" id="2_g2pb2"]
+[ext_resource type="PackedScene" uid="uid://b3df13snl081b" path="res://player/Player.tscn" id="2_g2pb2"]
 [ext_resource type="PackedScene" path="res://world/WorldBelow.tscn" id="4_yaxq6"]
 [ext_resource type="PackedScene" path="res://world/WorldAbove.tscn" id="5_6ctgu"]
 [ext_resource type="PackedScene" path="res://scenes/GUI.tscn" id="5_l7wg1"]

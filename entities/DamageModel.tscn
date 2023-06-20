@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://wblbrr5m7pfh"]
+
+[ext_resource type="Script" path="res://entities/DamageModel.cs" id="1_4kvkl"]
+
+[node name="DamageModel" type="Node"]
+script = ExtResource("1_4kvkl")

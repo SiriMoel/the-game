@@ -1,14 +1,15 @@
 using Godot;
 using System;
 
-public enum FaceDirection{ UP, DOWN, LEFT, RIGHT };
+public enum FaceDirection { UP, DOWN, LEFT, RIGHT };
 
-public partial class Player : CharacterBody2D
+public partial class Player : Entity
 {
 	public int Speed = 150;
 	public new Vector2 Velocity = new();
 	public FaceDirection facing = FaceDirection.DOWN;
 	private float Friction = 0.5f;
+
 	public override void _PhysicsProcess(double delta)
 	{
 		AnimatedSprite2D Animation = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
